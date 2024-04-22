@@ -30,6 +30,22 @@ module equerre(x=0,y=0,z=0){
     }
 }
 
+
+module pied(x=119,y=0,z=0){
+    
+    translate([x,y,z]){
+        color("blue",0.9){
+            // plaque verticale
+            translate([-20, 0, 6]){
+                $planche_L = 19.5;
+                $planche_l = 4.3;
+                $planche_h = 10;
+                cube([$planche_l, $planche_L, $planche_h], center = true);
+            }
+        }
+    }
+}
+
 module planche_verticale_gauche(x=0, y=0, z=0)
 {
     color("black",0.6){
@@ -66,6 +82,9 @@ module planche_verticale_gauche(x=0, y=0, z=0)
     equerre(0,0,0);
     equerre(-35,0,0);
     equerre(-70,0,0);
+    
+    // Pied
+    pied();
 }
 
 module planche_verticale_droite(x=0, y=180, z=0)
@@ -101,6 +120,9 @@ module planche_verticale_droite(x=0, y=180, z=0)
     equerre(0,180,0);
     equerre(-35,180,0);
     equerre(-70,180,0);
+    
+    // Pied
+    pied(120,180,0);
 }
 
 module planche_horizontale_premiere(x=-30, y=90, z=11)
@@ -207,3 +229,4 @@ planche_verticale_droite();
 planche_horizontale_premiere();
 planche_horizontale_deuxieme();
 planche_horizontale_troisieme();
+
